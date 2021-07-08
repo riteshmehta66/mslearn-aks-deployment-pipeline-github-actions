@@ -7,7 +7,7 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     tags:
-      - 'v1.0.1'
+      - "v1.0.1"
       
 # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -49,7 +49,8 @@ jobs:
           # Build's context is the set of files located in the specified PATH or URL
           context: .
           # List of tags
-          tags: ${{secrets.ACR_NAME}}/contoso-website:${GITHUB_REF#refs/tags}          
+          #tags: ${{secrets.ACR_NAME}}/contoso-website:${GITHUB_REF#refs/tags}        
+          tags: ${{secrets.ACR_NAME}}/contoso-website:${GITHUB_REF/refs\/tags\//}
           # Push is a shorthand for --output=type=registry
           push: true
           
