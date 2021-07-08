@@ -3,7 +3,7 @@ name: Build and push the latest build to production
 on:
   push:
     tags:
-      - 'v*'
+      - v*
 
 jobs:
   build_push_image:
@@ -26,5 +26,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          tags: ${{secrets.ACR_NAME}}/contoso-website:latest,${{secrets.ACR_NAME}}/contoso-website:${GITHUB_REF#refs/tags}
+          tags: ${{secrets.ACR_NAME}}/contoso-website:latest,${{secrets.ACR_NAME}}/contoso-website:v1.0.1
           push: true
