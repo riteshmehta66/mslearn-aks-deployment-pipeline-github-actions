@@ -47,7 +47,7 @@ jobs:
           # List of tags
           tags: ${{secrets.ACR_NAME}}/contoso-website:latest          
           # Push is a shorthand for --output=type=registry
-          push: # optional, default is false
+          push: true
           
 
 
