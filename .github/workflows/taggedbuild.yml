@@ -3,7 +3,7 @@ name: Build and push the tagged build to production
 on:
   push:
     tags:
-      - v1.*.*
+      - v*
       
 # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: What
+      - name: Capture Branch Tag
         run: echo "BRANCH=${GITHUB_REF##*/}" >> $GITHUB_ENV
 
       - name: Set up Buildx
