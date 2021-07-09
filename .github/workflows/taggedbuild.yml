@@ -3,7 +3,7 @@ name: Build and push the tagged build to production
 on:
   push:
     tags:
-      - v*
+      - v1.*.*
       
 # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -30,5 +30,5 @@ jobs:
         with:
           context: .
           #tags: ${{secrets.ACR_NAME}}/contoso-website:latest,${{secrets.ACR_NAME}}/contoso-website:v1.0.1
-          tags: ${{secrets.ACR_NAME}}/contoso-website:latest,${{secrets.ACR_NAME}}/contoso-website:${GITHUB_REF#refs/tags/}
+          tags: ${{secrets.ACR_NAME}}/contoso-website:latest,${{secrets.ACR_NAME}}/contoso-website:${GITHUB_REF#refs/*/}
           push: true
